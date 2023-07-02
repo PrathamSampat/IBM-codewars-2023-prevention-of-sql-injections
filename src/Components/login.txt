@@ -1,0 +1,56 @@
+import React, { useState } from 'react';
+import CryptoJS from 'crypto-js';
+
+const key = 'mySecretKey';
+const iv = 'mySecretIV';
+
+function RegistrationForm() {
+  const [username, setUsername] = useState('');
+  const [userPassword, setUserPassword] = useState('');
+  const [isMatch, setIsMatch] = useState(false);
+
+  const loginCredentials = { username: 'parth', password: '736177616e74' };
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    const encrypted = CryptoJS.DES.encrypt(userPassword, key).toString();
+    const decrypted = CryptoJS.DES.decrypt(encrypted, key).toString();
+    console.log(encrypted);
+    console.log(decrypted);
+
+    if (
+      username === loginCredentials.username &&
+      decrypted === loginCredentials.password
+    ) {
+      console.log('pass match');
+      setIsMatch(true);
+    } else {
+      console.log('wrong username or password');
+    }
+    // setIsMatch(encryptedUserPassword === encryptedPassword);
+  }
+
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input
+          type='text'
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+
+        <br />
+        <input
+          type='password'
+          value={userPassword}
+          onChange={(event) => setUserPassword(event.target.value)}
+        />
+        <br />
+        <button type='submit'>Submit</button>
+      </form>
+      {isMatch && <p>Passwords match!</p>}
+    </div>
+  );
+}
+
+export default RegistrationForm;

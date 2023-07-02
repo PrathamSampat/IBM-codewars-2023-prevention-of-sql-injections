@@ -1,0 +1,60 @@
+.registerFormHolder {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #0b0025;
+}
+
+.registerForm {
+  color: #fff;
+  background-color: #1d0c45;
+  margin-top: 40px;
+  width: 30%;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  border: 1px solid #000;
+}
+
+.register {
+  background-color: #fff382;
+  border: 0;
+  border-radius: 10px;
+  font-size: 16px;
+  margin: 15px;
+  padding: 12px;
+}
+
+.register:hover{
+  background-color: #d5cb6f;
+}
+.register:focus{
+  background-color: #b6ae5f;
+}
+
+input {
+  outline: 0;
+  color: #fff;
+  background-color: #0b0025;
+  border: 0;
+  border-radius: 10px;
+  font-size: 16px;
+  margin: 15px 15px 0 15px;
+  padding: 12px;
+}
+
+.err {
+  border: 2px solid red;
+}
+
+.noerr {
+  border: 0;
+}
+
+p {
+  font-size: 14px;
+  color: red;
+}
